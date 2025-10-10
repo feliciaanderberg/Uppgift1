@@ -1,0 +1,218 @@
+@charset "UTF-8";
+
+html {
+    font-size: 16px;
+}
+html, body {
+    height: 100%;
+}
+
+html, body, header, main, footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(120, 97, 68);
+    color: #000000;
+    margin: 0 auto;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: min-content auto min-content;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+}
+img {
+    max-width: 100%;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#headerbild {
+    background-image: linear-gradient(to top, rgb(120, 97, 68), rgba(0, 0, 0, 0.0)), url(../images/garn.png);
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+#footerbild {
+    background-image: linear-gradient(to bottom, rgb(120, 97, 68), rgba(0, 0, 0, 0.0)), url(../images/garn.png);
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
+
+header h1 {
+    font-size: 100px;
+    margin: 0;
+    color: rgb(242, 227, 208);
+}
+
+.bilder {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 140px));
+}
+
+.bilder img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.bilder img:hover {
+    transform: scale(1.05);
+}
+
+main {
+    grid-area: main;
+    background-color: rgb(197, 163, 119);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+footer {
+    grid-area: footer;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    background-color: rgb(101, 75, 42);
+    color: rgb(242, 227, 208);
+    padding: 1px 1px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 2px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.footerbox {
+    background-color: rgba(240, 223, 202, 0.588);
+    color: black;
+    padding: 10px 20px;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px;
+}
+
+section {
+    padding: 10px;
+    border-radius: 10px;;
+}
+
+#intro {
+    grid-area: intro;
+    background-color: rgb(240, 223, 202);
+    padding: 10px;
+    margin: 10px;
+}
+
+#mywork {
+    grid-area: mywork;
+    background-color: rgb(142, 110, 69);
+    padding: 10px;
+    margin: 10px;
+}
+
+#crochet {
+    grid-area: crochet;
+    background-color: rgb(240, 223, 202);
+    padding: 10px;
+    margin: 10px;
+}
+
+#knitting {
+    grid-area: knitting;
+    background-color: rgb(148, 117, 78);
+    padding: 10px;
+    margin: 10px;
+}
+
+/*-- media queries --*/
+
+@media screen and (min-width: 1100px) {
+    main {
+        display: grid;
+        grid-template-columns: repeat(3, 33.333%);
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        "intro intro mywork"
+        "crochet knitting mywork";
+    }
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav a {
+        min-width: 245px;
+    }
+    #main-nav a:hover {
+    color: rgb(101, 75, 42);
+    background-color: rgb(242, 227, 208);
+    transform: scale(1.05);
+    }
+    #footer-nav a:hover {
+    background-color: rgb(242, 227, 208);
+    color: rgb(101, 75, 42);
+    transform: scale(1.05);
+    }
+    .bilder {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    body {
+        display: grid;
+        grid-template-columns: auto minmax(1400px, 1600px) auto;
+        grid-template-areas: 
+        "header header header"
+        ". main ."
+        "footer footer footer";
+    }
+    .bilder {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+
+
